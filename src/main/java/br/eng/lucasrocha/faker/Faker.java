@@ -4,6 +4,7 @@
 package br.eng.lucasrocha.faker;
 
 import br.eng.lucasrocha.faker.resources.Lorem;
+import br.eng.lucasrocha.faker.resources.Name;
 import br.eng.lucasrocha.faker.utils.Locale;
 
 /**
@@ -15,6 +16,8 @@ public class Faker {
 	private String locale;
 
 	public static Lorem lorem = new Lorem();
+	
+	public static Name name = new Name();
 	
 	private static Faker instance; 
 	
@@ -69,4 +72,12 @@ public class Faker {
 		this.locale = locale;
 	}
 
+	public static void main(String[] args) {
+		System.err.println(Faker.name.firstName());
+		System.err.println(Faker.name.lastName());
+		System.err.println(Faker.name.fullName());
+		
+		System.out.println(Faker.lorem.paragraphs(3));
+	}
+	
 }
