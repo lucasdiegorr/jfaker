@@ -1,7 +1,7 @@
 pt-BR:
   faker:
     address:
-      city_prefix: [Nova, Velha, Grande, Vila, Município de]
+      city_prefix: [Nova, Velha, Grande, Vila, Município]
       city_suffix: [" do Descoberto", " de Nossa Senhora", " do Norte", " do Sul"]
       country: [ "Afeganistão", "Albânia", "Algéria", "Samoa", "Andorra", "Angola", "Anguilla", "Antígua e Barbuda", "Argentina", "Armênia", "Aruba", "Austrália",
                  "Áustria", "Azerbaijão", "Bahamas", "Barém", "Bangladesh", "Barbados", "Belgrado", "Bélgica", "Belize", "Benin", "Bermuda", "Butão", "Bolívia",
@@ -26,9 +26,7 @@ pt-BR:
                  "Estados Unidos das Ilhas Virgens", "Uruguai", "Uzbequistão", "Vanuatu", "Venezuela", "Vietnã", "Wallis e Futuna", "Saara Ocidental", "Iémen", "Zâmbia", "Zimbábue"]
       building_number: ["#####", "####", "###", "s/n"]
       street_suffix: ["Rua", "Avenida", "Travessa", "Ponte", "Alameda", "Marginal", "Viela", "Rodovia"]
-      street_name:
-        - "#{street_suffix} #{Name.first_name}"
-        - "#{street_suffix} #{Name.first_name} #{Name.last_name}"
+      street_name: ["#{street_suffix} #{Name.first_name}", "#{street_suffix} #{Name.first_name} #{Name.last_name}"]
       secondary_address: ["Apto. ###", "Sobrado ##", "Casa #", "Lote ##", "Quadra ##"]
       postcode: ["#####-###"]
       state: ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"]

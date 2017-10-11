@@ -3,6 +3,7 @@
  */
 package br.eng.lucasrocha.faker;
 
+import br.eng.lucasrocha.faker.resources.Address;
 import br.eng.lucasrocha.faker.resources.Lorem;
 import br.eng.lucasrocha.faker.resources.Name;
 import br.eng.lucasrocha.faker.utils.Locale;
@@ -19,14 +20,9 @@ public class Faker {
 	
 	public static Name name = new Name();
 	
-	private static Faker instance; 
+	public static Address address = new Address();
 	
-	/**
-	 * 
-	 */
-	public Faker() {
-		this.setLocale(Locale.ptBR);
-	}
+	private static Faker instance; 
 	
 	public Faker(String locale) {
 		this.setLocale(locale);
@@ -44,12 +40,7 @@ public class Faker {
 	 * @return
 	 */
 	public static Faker getInstance() {
-		if (instance == null) {
-			instance = new Faker();
-			return instance;
-		}else {
-			return instance;
-		}
+		return getInstance(Locale.PT_BR);
 	}
 	
 	/**
@@ -73,11 +64,12 @@ public class Faker {
 	}
 
 	public static void main(String[] args) {
-		System.err.println(Faker.name.firstName());
-		System.err.println(Faker.name.lastName());
-		System.err.println(Faker.name.fullName());
 		
-		System.out.println(Faker.lorem.paragraphs(3));
+//		System.out.println(Faker.address.fullAddress());
+//		System.out.println(Faker.address.cityName());
+//		System.out.println(Faker.address.state());
+		
+		System.out.println(Faker.address.defaultCountry());
 	}
 	
 }

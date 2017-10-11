@@ -28,7 +28,7 @@ public class ApplicationContext {
 	 * Constructor Default
 	 */
 	public ApplicationContext() {
-		this.setLocale(Locale.ptBR);
+		this.setLocale(Locale.PT_BR);
 		this.setAppName("faker");
 	}
 	
@@ -37,12 +37,7 @@ public class ApplicationContext {
 	 * @return
 	 */
 	public static ApplicationContext getInstance() {
-		if (instance == null) {
-			instance = new ApplicationContext();
-			return instance;
-		}else {
-			return instance;
-		}
+		return getInstance(Locale.PT_BR);
 	}
 	
 	/**

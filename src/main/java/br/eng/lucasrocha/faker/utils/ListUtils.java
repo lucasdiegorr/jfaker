@@ -15,9 +15,10 @@ public class ListUtils {
 
 	public static List<String> randomSubList(List<String> list, Integer size){
 		List<String> returnList = new ArrayList<>();
-		
-		for (int index = 0; index < size; index++) {
-			returnList.add(list.get(new Random().nextInt(list.size())));
+		if (list != null) {
+			for (int index = 0; index < size; index++) {
+				returnList.add(list.get(new Random().nextInt(list.size())));
+			}
 		}
 		return returnList;
 	}
