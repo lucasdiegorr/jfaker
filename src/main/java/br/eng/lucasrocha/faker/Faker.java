@@ -62,14 +62,4 @@ public class Faker {
 	private void setLocale(String locale) {
 		this.locale = locale;
 	}
-
-	public static void main(String[] args) {
-		
-//		System.out.println(Faker.address.fullAddress());
-//		System.out.println(Faker.address.cityName());
-//		System.out.println(Faker.address.state());
-		
-		System.out.println(Faker.address.defaultCountry());
-	}
-	
 }

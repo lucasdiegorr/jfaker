@@ -14,7 +14,7 @@ import java.util.Random;
 public class ListUtils {
 
 	public static List<String> randomSubList(List<String> list, Integer size){
-		List<String> returnList = new ArrayList<>();
+		List<String> returnList = new ArrayList<String>();
 		if (list != null) {
 			for (int index = 0; index < size; index++) {
 				returnList.add(list.get(new Random().nextInt(list.size())));

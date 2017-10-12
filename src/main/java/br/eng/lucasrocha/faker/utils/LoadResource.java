@@ -30,7 +30,8 @@ public class LoadResource {
 			Map<?,?> map = (Map<?,?>) valuesMapResource.get(splitPath[0]);
 			return loadResource(map, splitPath[1]);
 		}
-		List<?> listFromMap = valuesMapResource.get(resourcePath) instanceof String ? Arrays.asList(valuesMapResource.get(resourcePath)) : (List<?>) valuesMapResource.get(resourcePath);
+		@SuppressWarnings("unchecked")
+		List<?> listFromMap = valuesMapResource.get(resourcePath) instanceof String ? (List<?>)Arrays.asList(valuesMapResource.get(resourcePath)) : (List<?>) valuesMapResource.get(resourcePath);
 		List<String> returnList = new ArrayList<String>();
 		for (Object object : listFromMap) {
 			returnList .add(object.toString());
