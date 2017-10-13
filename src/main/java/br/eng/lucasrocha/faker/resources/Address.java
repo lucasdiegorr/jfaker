@@ -140,22 +140,22 @@ public class Address {
 		return loadResource("default_country").get(0);
 	}
 	
-	public List<String> streetSufixes() {
+	public List<String> streetSuffixes() {
 		return loadResource("street_suffix");
 	}
 	
-	public List<String> streetSufixes(Integer quantity) {
+	public List<String> streetSuffixes(Integer quantity) {
 		return ListUtils.randomSubList(loadResource("street_suffix"), quantity);
 	}
 	
-	public String streetSufix() {
-		List<String> streetSufixes = streetSufixes();
+	public String streetSuffix() {
+		List<String> streetSufixes = streetSuffixes();
 		return streetSufixes.get(new Random().nextInt(streetSufixes.size()));
 	}
 	
 	public String streetName() {
 		String templateStreetName = loadResource("street_name").get(new Random().nextInt(2));
-		templateStreetName = templateStreetName.replaceFirst("\\#\\{street_suffix\\}", streetSufix());
+		templateStreetName = templateStreetName.replaceFirst("\\#\\{street_suffix\\}", streetSuffix());
 		templateStreetName = templateStreetName.replaceFirst("\\#\\{Name\\.first_name\\}", Faker.name.firstName());
 		templateStreetName = templateStreetName.replaceFirst("\\#\\{Name\\.last_name\\}", Faker.name.lastName());
 		return templateStreetName;

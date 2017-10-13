@@ -20,7 +20,7 @@ public class Name {
 
 	private final String base = "name."; 
 	
-	private final Integer quantityLastNames = 10;
+	private final Integer quantityLastNames = 5;
 	
 	/**
 	 * 
@@ -37,9 +37,12 @@ public class Name {
 		return loadResource("first_name");
 	}
 	
+	public List<String> firstNames(Integer quantity){
+		return ListUtils.randomSubList(firstNames(), quantity);
+	}
+	
 	public String firstName() {
-		List<String> firstNames = firstNames();
-		return firstNames.get(new Random().nextInt(firstNames.size()));
+		return firstNames(1).get(0);
 	}
 	
 	public List<String> lastNames() {
@@ -51,26 +54,25 @@ public class Name {
 	}
 	
 	public String lastName() {
-		List<String> lastNames = lastNames();
-		return lastNames.get(new Random().nextInt(lastNames.size()));
+		return lastNames(1).get(0);
 	}
 	
-	public List<String> fullNames() {
+	public List<String> simpleNames() {
 		Integer quantity = new Random().nextInt();
-		return fullNames(quantity);
+		return simpleNames(quantity);
 	}
 
 	/**
 	 * @param quantity
 	 * @return
 	 */
-	public List<String> fullNames(Integer quantity) {
-		ArrayList<String> fullNames = new ArrayList<String>();
+	public List<String> simpleNames(Integer quantity) {
+		List<String> fullNames = new ArrayList<String>();
 		
 		for (int index = 0; index < quantity; index++) {
 			StringBuilder fullNameStringBuilder = new StringBuilder();
 			fullNameStringBuilder.append(firstName());
-			List<String> lastNames = lastNames(new Random().nextInt(quantityLastNames));
+			List<String> lastNames = lastNames(new Random().nextInt(this.quantityLastNames));
 			for (String lastName : lastNames) {
 				fullNameStringBuilder.append(" " + lastName);
 			}
@@ -79,8 +81,108 @@ public class Name {
 		return fullNames;
 	}
 
-	public String fullName() {
-		return fullNames(1).get(0);
+	public String simpleName() {
+		return simpleNames(1).get(0);
 	}
 	
+	public List<String> prefixes(){
+		return loadResource("prefix");
+	}
+	
+	public List<String> prefixes(Integer quantity){
+		return ListUtils.randomSubList(prefixes(), quantity);
+	}
+	
+	public String prefix() {
+		return prefixes(1).get(0);
+	}
+	
+	public List<String> suffixes(){
+		return loadResource("suffix");
+	}
+	
+	public List<String> suffixes(Integer quantity){
+		return ListUtils.randomSubList(suffixes(), quantity);
+	}
+	
+	public String suffix() {
+		return suffixes(1).get(0);
+	}
+	
+	public String simpleNameWithPrefix() {
+		return prefix() + " " + simpleName();
+	}
+	
+	public List<String> simpleNamesWithPrefix(Integer quantity){
+		List<String> simpleNamesWithPrefix = new ArrayList<String>();
+		for (int index = 0; index < quantity; index++) {
+			simpleNamesWithPrefix.add(simpleNameWithPrefix());
+		}
+		return simpleNamesWithPrefix;
+	}
+	
+	public List<String> simpleNamesWithPrefix() {
+		Integer quantity = new Random().nextInt();
+		return simpleNamesWithPrefix(quantity);
+	}
+	
+	public String simpleNameWithSuffix() {
+		return simpleName() + " " + suffix();
+	}
+	
+	public List<String> simpleNameWithSuffixes(Integer quantity){
+		List<String> simpleNamesWithSuffix = new ArrayList<String>();
+		for (int index = 0; index < quantity; index++) {
+			simpleNamesWithSuffix.add(simpleNameWithSuffix());
+		}
+		return simpleNamesWithSuffix;
+	}
+	
+	public List<String> simpleNameWithSuffixes() {
+		Integer quantity = new Random().nextInt();
+		return simpleNameWithSuffixes(quantity);
+	}
+	
+	public String simpleNameWithPrefixAndSuffix() {
+		return prefix() + " " + simpleName() + " " + suffix();
+	}
+	
+	public List<String> simpleNamePrefixAndSuffixes(Integer quantity){
+		List<String> fullNamesWithSuffix = new ArrayList<String>();
+		for (int index = 0; index < quantity; index++) {
+			fullNamesWithSuffix.add(simpleNameWithPrefixAndSuffix());
+		}
+		return fullNamesWithSuffix;
+	}
+	
+	public List<String> fullNameWithPrefixAndSuffixes() {
+		Integer quantity = new Random().nextInt();
+		return simpleNameWithSuffixes(quantity);
+	}
+	
+	public String fullName() {
+		Integer random = new Random().nextInt(4);
+		if (random == 0) {
+			return simpleName();
+		} else if(random == 1) {
+			return simpleNameWithPrefix();
+		} else if(random == 2) {
+			return simpleNameWithSuffix();
+		} else {
+			return simpleNameWithPrefixAndSuffix();
+		}
+	}
+	
+	public List<String> fullNames(Integer quantity){
+		List<String> fullNames = new ArrayList<String>();
+		for (int index = 0; index < quantity; index++) {
+			fullNames.add(fullName());
+		}
+		return fullNames;
+	}
+	
+	public List<String> fullNames(){
+		Integer quantity = new Random().nextInt();
+		return fullNames(quantity > 0 ? quantity : 1);
+	}
 }

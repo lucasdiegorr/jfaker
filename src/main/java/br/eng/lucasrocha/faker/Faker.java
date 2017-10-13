@@ -4,8 +4,11 @@
 package br.eng.lucasrocha.faker;
 
 import br.eng.lucasrocha.faker.resources.Address;
+import br.eng.lucasrocha.faker.resources.Company;
+import br.eng.lucasrocha.faker.resources.Internet;
 import br.eng.lucasrocha.faker.resources.Lorem;
 import br.eng.lucasrocha.faker.resources.Name;
+import br.eng.lucasrocha.faker.resources.Phone;
 import br.eng.lucasrocha.faker.utils.Locale;
 
 /**
@@ -21,6 +24,12 @@ public class Faker {
 	public static Name name = new Name();
 	
 	public static Address address = new Address();
+	
+	public static Company company = new Company();
+	
+	public static Internet internet = new Internet();
+	
+	public static Phone phone = new Phone();
 	
 	private static Faker instance; 
 	
