@@ -23,7 +23,7 @@ public class Lorem {
 	
 	private final String lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
 	
-	private final String numeric = "0123456789";
+	private final String digits = "0123456789";
 	
 	/**
 	 * 
@@ -155,18 +155,18 @@ public class Lorem {
 	/**
 	 * @return - A numeric
 	 */
-	public char numeric() {
-		return this.numeric.charAt(new Random().nextInt(10));
+	public char digit() {
+		return this.digits.charAt(new Random().nextInt(10));
 	}
 	
 	/**
 	 * @param quantity - Number of numerics request
 	 * @return - A word of quantity numerics request
 	 */
-	public String numerics(Integer quantity) {
+	public String digits(Integer quantity) {
 		String result = "";
 		for (int index = 0; index < quantity; index++) {
-			result += numeric();
+			result += digit();
 		}
 		return result;
 	}
@@ -175,7 +175,7 @@ public class Lorem {
 	 * @return -  A alphanumeric
 	 */
 	public char alphaNumeric() {
-		return (this.upperAlphabet+this.lowerAlphabet+this.numeric).charAt(new Random().nextInt(62));
+		return (this.upperAlphabet+this.lowerAlphabet+this.digits).charAt(new Random().nextInt(62));
 	}
 	
 	/**

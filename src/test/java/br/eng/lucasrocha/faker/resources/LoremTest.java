@@ -120,20 +120,20 @@ public class LoremTest {
 	}
 
 	/**
-	 * Test method for {@link br.eng.lucasrocha.faker.resources.Lorem#numeric()}.
+	 * Test method for {@link br.eng.lucasrocha.faker.resources.Lorem#digit()}.
 	 */
 	@Test
 	public void testNumeric() {
-		assertNotNull(Faker.lorem.numeric());
+		assertNotNull(Faker.lorem.digit());
 	}
 
 	/**
-	 * Test method for {@link br.eng.lucasrocha.faker.resources.Lorem#numerics(java.lang.Integer)}.
+	 * Test method for {@link br.eng.lucasrocha.faker.resources.Lorem#digits(java.lang.Integer)}.
 	 */
 	@Test
 	public void testNumerics() {
 		int quantity = new Random().nextInt(10);
-		assertEquals(quantity, Faker.lorem.numerics(quantity).length());
+		assertEquals(quantity, Faker.lorem.digits(quantity).length());
 	}
 
 	/**
