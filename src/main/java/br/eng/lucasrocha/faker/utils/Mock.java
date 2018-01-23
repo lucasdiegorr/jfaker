@@ -20,13 +20,15 @@ public class Mock {
 		Object object = null;
 
 		try {
-			object = clazz.newInstance();
-			for (Field field : clazz.getDeclaredFields()) {
-				field.setAccessible(true);
-				if (isJavaType(field.getType())) {
-					field.set(object, generateValue(field.getType()));
-				} else {
-					field.set(object,generateInstance(field.getType()));
+			if (!(clazz.isInterface() || clazz.isArray())) {
+				object = clazz.newInstance();
+				for (Field field : clazz.getDeclaredFields()) {
+					field.setAccessible(true);
+					if (isJavaType(field.getType())) {
+						field.set(object, generateValue(field.getType()));
+					} else {
+						field.set(object,generateInstance(field.getType()));
+					}
 				}
 			}
 		} catch (SecurityException e) {
