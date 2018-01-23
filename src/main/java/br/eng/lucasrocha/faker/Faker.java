@@ -10,6 +10,7 @@ import br.eng.lucasrocha.faker.resources.Lorem;
 import br.eng.lucasrocha.faker.resources.Name;
 import br.eng.lucasrocha.faker.resources.Phone;
 import br.eng.lucasrocha.faker.utils.Locale;
+import br.eng.lucasrocha.faker.utils.Mock;
 
 /**
  * @author Lucas Rocha <lucas.diegorr@gmail.com>
@@ -30,6 +31,8 @@ public class Faker {
 	public static Internet internet = new Internet();
 	
 	public static Phone phone = new Phone();
+	
+	public static Mock mock = new Mock();
 	
 	private static Faker instance; 
 	
